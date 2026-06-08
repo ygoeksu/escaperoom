@@ -1,0 +1,58 @@
+{
+  "rooms": {
+    "lab": {
+      "id": "lab",
+      "name": "Research Laboratory",
+      "description": "A sterile lab. Fluorescent lights buzz overhead. Benches are covered in abandoned experiments. There is a keypad-locked door to the north.",
+      "items": ["science_book", "beaker"],
+      "exits": {
+        "north": {
+          "room_id": "hallway",
+          "requires_flag": "keypad_solved",
+          "locked_message": "The door is locked. A keypad panel blinks red beside it."
+        }
+      },
+      "puzzles": ["keypad"]
+    },
+    "hallway": {
+      "id": "hallway",
+      "name": "Exit Hallway",
+      "description": "A bare concrete hallway. The exit sign glows green at the far end.",
+      "items": [],
+      "exits": {
+        "south": "lab"
+      },
+      "puzzles": []
+    }
+  },
+  "items": {
+    "science_book": {
+      "id": "science_book",
+      "name": "research journal",
+      "description": "A worn research journal left open on a bench. Most of it is dense equations, but on the inside cover someone has scrawled in red pen: 4791.",
+      "takeable": true
+    },
+    "beaker": {
+      "id": "beaker",
+      "name": "beaker",
+      "description": "An empty glass beaker. Nothing useful inside.",
+      "takeable": true
+    }
+  },
+  "puzzles": {
+    "keypad": {
+      "id": "keypad",
+      "type": "code",
+      "code": "4791",
+      "result": "keypad_solved",
+      "success_message": "The keypad beeps green. A lock disengages with a heavy clunk.",
+      "failure_message": "The keypad buzzes red. Incorrect code."
+    }
+  },
+  "start_room": "lab",
+  "win_condition": {
+    "type": "reach_room",
+    "room_id": "hallway",
+    "message": "You sprint down the hallway and burst through the exit. You're free!"
+  }
+}

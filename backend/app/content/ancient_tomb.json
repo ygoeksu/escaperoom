@@ -1,0 +1,101 @@
+{
+  "rooms": {
+    "entrance": {
+      "id": "entrance",
+      "name": "Entrance Chamber",
+      "description": "A dusty stone chamber. Hieroglyphs cover the walls. A stone altar dominates the center — a scarab-shaped indentation carved into its surface. A sealed passage leads east.",
+      "items": ["golden_scarab", "stone_tablet"],
+      "exits": {
+        "east": {
+          "room_id": "main_chamber",
+          "requires_flag": "altar_opened",
+          "locked_message": "The eastern passage is sealed by a heavy stone slab."
+        }
+      },
+      "puzzles": ["altar_lock"]
+    },
+    "main_chamber": {
+      "id": "main_chamber",
+      "name": "Burial Chamber",
+      "description": "The main burial chamber. A stone sarcophagus rests in the center, its lid ajar. A heavy iron door stands to the north. Dust motes float in the dim light filtering from the entrance behind you.",
+      "items": ["bronze_key", "oil_lamp"],
+      "exits": {
+        "west": "entrance",
+        "north": {
+          "room_id": "treasure_room",
+          "requires_flag": "tomb_opened",
+          "locked_message": "The iron door is locked. A large keyhole sits beneath the handle."
+        }
+      },
+      "puzzles": ["tomb_door"]
+    },
+    "treasure_room": {
+      "id": "treasure_room",
+      "name": "Treasure Room",
+      "description": "A breathtaking chamber filled with ancient riches — gold vessels, jewelled ornaments, painted urns. In the center, on a plinth, rests an ancient crown. A shaft of light falls from a crack in the ceiling above, illuminating a rope ladder that reaches the surface.",
+      "items": ["ancient_crown"],
+      "exits": {
+        "south": "main_chamber"
+      },
+      "puzzles": []
+    }
+  },
+  "items": {
+    "golden_scarab": {
+      "id": "golden_scarab",
+      "name": "golden scarab",
+      "description": "A gleaming golden beetle, perfectly preserved. Its underside has a small peg that looks like it fits into something precise.",
+      "takeable": true
+    },
+    "stone_tablet": {
+      "id": "stone_tablet",
+      "name": "stone tablet",
+      "description": "An inscribed tablet propped against the altar. The text reads: 'Place the sacred scarab upon the altar to open the way.'",
+      "takeable": false
+    },
+    "bronze_key": {
+      "id": "bronze_key",
+      "name": "bronze key",
+      "description": "A heavy key fashioned from aged bronze. It was resting inside the open sarcophagus.",
+      "takeable": true
+    },
+    "oil_lamp": {
+      "id": "oil_lamp",
+      "name": "oil lamp",
+      "description": "A clay oil lamp, long since burned dry.",
+      "takeable": true
+    },
+    "ancient_crown": {
+      "id": "ancient_crown",
+      "name": "ancient crown",
+      "description": "A magnificent crown set with lapis lazuli and carnelian. It radiates quiet authority across the millennia.",
+      "takeable": true
+    }
+  },
+  "puzzles": {
+    "altar_lock": {
+      "id": "altar_lock",
+      "type": "key_lock",
+      "required_item": "golden_scarab",
+      "result": "altar_opened",
+      "success_message": "The scarab clicks into the indentation with a satisfying snap. The stone slab grinds aside, revealing a passage to the east.",
+      "failure_message": "Nothing fits the indentation.",
+      "consume_item": true
+    },
+    "tomb_door": {
+      "id": "tomb_door",
+      "type": "key_lock",
+      "required_item": "bronze_key",
+      "result": "tomb_opened",
+      "success_message": "The bronze key turns stiffly in the ancient lock. The iron door swings open with a groan.",
+      "failure_message": "The key doesn't fit this lock.",
+      "consume_item": true
+    }
+  },
+  "start_room": "entrance",
+  "win_condition": {
+    "type": "reach_room",
+    "room_id": "treasure_room",
+    "message": "You stand in the treasure room, surrounded by wonders untouched for three thousand years. You've conquered the tomb — now climb out before anyone notices."
+  }
+}

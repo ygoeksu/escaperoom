@@ -39,6 +39,7 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+.idea/
 .nox/
 .coverage
 .coverage.*
@@ -74,7 +75,42 @@ docs/_build/
 # PyBuilder
 .pybuilder/
 target/
+# dependencies
+frontend/node_modules/
 
+# build output
+frontend/build/
+frontend/dist/
+frontend/out/
+
+# environment variables
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# logs
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# test coverage
+frontend/coverage/*
+
+# caches
+frontend/.cache/*
+frontend/.parcel-cache/
+frontend/.vite/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
 # Jupyter Notebook
 .ipynb_checkpoints
 
