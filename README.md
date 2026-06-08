@@ -60,7 +60,7 @@ Dockerized backend and frontend
 Automated testing via CI pipeline
 Build validation on every push
 ## 📁 Project Structure
-escape-room-game/
+```escape-room-game/
 ├── backend/
 │   ├── app/
 │   │   ├── api/          # FastAPI routes
@@ -89,6 +89,7 @@ escape-room-game/
 │       └── ci.yml
 │
 └── README.md
+```
 ## 🚀 Getting Started
 1. Clone repository
 git clone https://github.com/your-username/escape-room-game.git
@@ -155,9 +156,6 @@ Engine is deterministic
 Content is data-driven
 API is stateless
 Frontend is presentation-only
-## 📜 License
-
-MIT (or your choice)
 
 ## 💡 Motivation
 
