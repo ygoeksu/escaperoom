@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from backend.app.engine import GameContent
+from app.engine import GameContent
 
 CONTENT_DIR = Path(__file__).resolve().parents[2] / "content"
 
